@@ -1,5 +1,5 @@
 # Set default behavior to automatically normalize line endings
-* text=auto
+* text=auto eol=lf
 
 # Force batch scripts to use CRLF
 *.bat text eol=crlf
@@ -47,4 +47,7 @@
 *.md text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
-.htaccess text eol=lf 
+.htaccess text eol=lf
+
+# Additional files with specific line endings
+*.{vcxproj,vcxproj.filters} text eol=crlf 
