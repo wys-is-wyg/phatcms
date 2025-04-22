@@ -1,0 +1,48 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * PhatCMS - Console Application
+ */
+
+// Define the application root directory
+define('APP_ROOT', __DIR__);
+
+// Load the bootstrap file
+require_once APP_ROOT . '/bootstrap/app.php';
+
+// Get command from arguments
+$command = $argv[1] ?? null;
+$action = $argv[2] ?? 'run';
+$args = array_slice($argv, 3);
+
+if (!$command) {
+    echo "Usage: php phatcms <command> [action] [arguments]\n";
+    echo "Available commands:\n";
+    echo "  migrate     Run database migrations\n";
+    echo "  seed        Run database seeders\n";
+    exit(1);
+}
+
+// Map commands to classes
+$commands = [
+    'migrate' => \App\Commands\MigrateCommand::class,
+    'seed' => \App\Commands\SeedCommand::class,
+];
+
+// Check if command exists
+if (!isset($commands[$command])) {
+    echo "Command not found: $command\n";
+    exit(1);
+}
+
+// Run command
+$className = $commands[$command];
+$instance = new $className();
+
+if (!method_exists($instance, $action)) {
+    echo "Action not found: $action\n";
+    exit(1);
+}
+
+$instance->$action($args); 
