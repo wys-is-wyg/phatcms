@@ -1,0 +1,62 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Composer dependencies
+/vendor/
+composer.lock
+
+# Node dependencies
+/node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build assets
+/public/assets/
+/public/hot
+/public/storage
+
+# Storage and cache
+/storage/*.key
+/storage/logs/*
+/storage/app/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+.phpunit.result.cache
+
+# IDE and editor files
+/.idea/
+/.vscode/
+/.fleet/
+/.phpstorm.meta.php
+/_ide_helper.php
+/_ide_helper_models.php
+.phpstorm.meta.php
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+/log/*
+*.log
+
+# Cursor specific
+/.cursor/
+
+# Testing
+/coverage/
+.phpunit.cache/
+
+# Misc
+.htaccess.local
+*.bak
+*.cache
+*.tmp 
+/salvage
